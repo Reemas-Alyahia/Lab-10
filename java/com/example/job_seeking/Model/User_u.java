@@ -29,7 +29,7 @@ public class User_u {
 
     @NotEmpty(message = "email cannot be Empty!..")
     @Email(message = "Must be a valid email format")
-    @Column(columnDefinition = "varchar(10) not null unique")
+    @Column(columnDefinition = "varchar(20) not null unique")
     private String email;
 
     //@Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,20}$", message = "Password must be between 8 to 20 characters, include letters, numbers, and at least one special character.")

@@ -25,12 +25,12 @@ public class JobApplicationService {
 
     /// apply
     public String addJobApplication(JobApplication jobApplication) {
-        User_u user = userRepository.findById(jobApplication.getUserid()).orElse(null);
+        User_u user = userRepository.getById(jobApplication.getUserid());
         if (user == null || !user.getRole().equalsIgnoreCase("JOB_SEEKER")) {
             return "User not found or is not a JOB_SEEKER.";
         }
 
-        JobPost jobPost = jobPostRepository.findById(jobApplication.getJobPostId()).orElse(null);
+        JobPost jobPost = jobPostRepository.getById(jobApplication.getJobPostId());
         if (jobPost == null) {
             return "Job post not found.";
         }
@@ -53,7 +53,7 @@ public class JobApplicationService {
 
     /// Update
     /// /public Boolean updateJobapplication(JobApplication jobApplication,Integer id){
-    ///         JobApplication oldJobApplication = jobApplicationRepository.findById(id).orElse(null);
+    ///         JobApplication oldJobApplication = jobApplicationRepository.getById(id);
     ///         if (oldJobApplication == null) {
     ///             return false;
     ///         }
